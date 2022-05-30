@@ -1,7 +1,7 @@
 const { write } = require("fs");
 const http = require("http");
 const routes = require("./routes.js");
-
+const myEmitter = require("./event.js");
 const server = http.createServer((req, res) => {
   res.writeHead(200, { Content_Type: "text/html" });
   //res.write("<html><body> It worked.</html>");
@@ -9,10 +9,12 @@ const server = http.createServer((req, res) => {
     case "/":
       console.log("root");
       routes.indexPage("./views/index.html", res);
+      myEmitter.myEmitter.emit("root");
       break;
     case "/hello":
       console.log("/hello");
       routes.helloPage("./views/hello.html", res);
+      myEmitter.myEmitter.emit("sample");
       break;
     case "/about":
       console.log("/about");
