@@ -26,7 +26,7 @@ const server = http.createServer((req, res) => {
       break;
     default:
       console.log("/default");
-      res.write("default</br>");
+      routes.fourofourPage("./views/fourofour.html", res);
       break;
   }
 });
