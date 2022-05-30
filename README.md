@@ -1,1 +1,0 @@
-# QAP-2-FullStack
